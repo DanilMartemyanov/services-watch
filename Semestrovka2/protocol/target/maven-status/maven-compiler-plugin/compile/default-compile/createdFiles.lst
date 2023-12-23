@@ -1,0 +1,7 @@
+ru/itis/message/Message.class
+ru/itis/serializer/MessageSerializer.class
+ru/itis/message/MessageProperty.class
+ru/itis/message/MessageTypes.class
+ru/itis/message/BytesMessage.class
+ru/itis/MessageManager.class
+ru/itis/message/ChatMessage.class

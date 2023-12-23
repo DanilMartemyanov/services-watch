@@ -1,0 +1,7 @@
+/home/bebra/repositories-ITIS/Socket-Homework/HW-1/protocol/src/main/java/ru/itis/message/Message.java
+/home/bebra/repositories-ITIS/Socket-Homework/HW-1/protocol/src/main/java/ru/itis/message/MessageTypes.java
+/home/bebra/repositories-ITIS/Socket-Homework/HW-1/protocol/src/main/java/ru/itis/message/ChatMessage.java
+/home/bebra/repositories-ITIS/Socket-Homework/HW-1/protocol/src/main/java/ru/itis/message/MessageProperty.java
+/home/bebra/repositories-ITIS/Socket-Homework/HW-1/protocol/src/main/java/ru/itis/MessageManager.java
+/home/bebra/repositories-ITIS/Socket-Homework/HW-1/protocol/src/main/java/ru/itis/message/BytesMessage.java
+/home/bebra/repositories-ITIS/Socket-Homework/HW-1/protocol/src/main/java/ru/itis/serializer/MessageSerializer.java
