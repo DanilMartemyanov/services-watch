@@ -15,8 +15,8 @@ import java.util.List;
 public class AppClient {
     public static void main(String[] args) throws UnknownHostException, ClientException, InterruptedException {
         Client client = new SocketClient(InetAddress.getLocalHost(), 8082);
-        List<Integer> list = new ArrayList<>();
-        client.registerHandler(new ClientSumMessageHandlerImpl(list));
+        List<Integer> resource = new ArrayList<>();
+        client.registerHandler(new ClientSumMessageHandlerImpl(resource));
         client.start();
         ClientMessageSender clientMessageSender = new ClientMessageSenderImpl(client);
         new Thread(new Runnable() {
@@ -33,8 +33,8 @@ public class AppClient {
                     } catch (InterruptedException e) {
                         throw new RuntimeException(e);
                     }
-                    if (list.size()>i){
-                        System.out.println("from AppClient: " + list.get(i));
+                    if (resource.size()>i){
+                        System.out.println("from AppClient: " + resource.get(i));
                         i++;
                     }
                 }
