@@ -10,7 +10,9 @@ public class ProtocolMessageValidator {
         return type == MessageTypes.BYTES
                 || type == MessageTypes.SEND_TEXT_IN_CHAT
                 || type == MessageTypes.SEND_VIDEO
-                || type == MessageTypes.REQUEST_BY_GET_VIDEO;
+                || type == MessageTypes.REQUEST_BY_GET_VIDEO
+                || type == MessageTypes.SEND_SUM
+                || type == MessageTypes.CALCULATE_SUM;
     }
 
     public static boolean isValidLength(int length) {

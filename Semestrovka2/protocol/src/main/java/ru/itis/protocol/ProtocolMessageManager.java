@@ -44,29 +44,24 @@ public class ProtocolMessageManager {
         byte[] messageLengthBytes = new byte[4];
         int messageType;
         int messageLength;
-        try (InputStream in = inputStream) {
-            in.read(startBytes, 0, MessageProperty.START_BYTES.length);
-            if (!ProtocolMessageValidator.isAvailableProtocolVersion(startBytes)){
-                throw new IllegalArgumentException("We can't proccess this message, please change version of protocol");
-            }
-            in.read(messageTypeBytes, 0, 4);
-            messageType = ByteBuffer.wrap(messageTypeBytes,0,4).getInt();
-            if (!ProtocolMessageValidator.isValidType(messageType)) {
-                throw new IllegalArgumentException("Invalid message type");
-            }
-            in.read(messageLengthBytes, 0, 4);
-            messageLength = ByteBuffer.wrap(messageLengthBytes, 0, 4).getInt();
-            if (!ProtocolMessageValidator.isValidLength(messageLength)) {
-                throw new IllegalArgumentException("Message can't be more " + MessageProperty.MAX_LENGTH);
-            }
-            byte[] messagePayload = new byte[messageLength];
-            in.read(messagePayload,0,messageLength);
-
-            return ObjectMessageSerializer.deserialize(messageType, messagePayload);
-        } catch (IOException e) {
-            throw new IOException(e);
-        } catch (IllegalArgumentException e) {
-            throw new IllegalArgumentException(e);
+        InputStream in = inputStream;
+        in.read(startBytes, 0, MessageProperty.START_BYTES.length);
+        if (!ProtocolMessageValidator.isAvailableProtocolVersion(startBytes)){
+            throw new IllegalArgumentException("We can't proccess this message, please change version of protocol");
         }
+        in.read(messageTypeBytes, 0, 4);
+        messageType = ByteBuffer.wrap(messageTypeBytes,0,4).getInt();
+        if (!ProtocolMessageValidator.isValidType(messageType)) {
+            throw new IllegalArgumentException("Invalid message type");
+        }
+        in.read(messageLengthBytes, 0, 4);
+        messageLength = ByteBuffer.wrap(messageLengthBytes, 0, 4).getInt();
+        if (!ProtocolMessageValidator.isValidLength(messageLength)) {
+            throw new IllegalArgumentException("Message can't be more " + MessageProperty.MAX_LENGTH);
+        }
+        byte[] messagePayload = new byte[messageLength];
+        in.read(messagePayload,0,messageLength);
+
+        return ObjectMessageSerializer.deserialize(messageType, messagePayload);
     }
 }
