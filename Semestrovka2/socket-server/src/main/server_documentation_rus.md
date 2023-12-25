@@ -35,3 +35,4 @@
 ## CalculateSumMessageHandler
 Класс, расширяющий AbstractServerMessageHandler.
 Просто пример обработчика, который обрабатывает конкретный тип сообщения.
+fu

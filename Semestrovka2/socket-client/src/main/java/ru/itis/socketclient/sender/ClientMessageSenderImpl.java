@@ -5,9 +5,11 @@ import ru.itis.protocol.message.ChatMessage;
 import ru.itis.socketclient.client.Client;
 import ru.itis.socketclient.exception.ClientException;
 
-public class ClientMessageSenderImpl extends AbstractClientMessageSender {
-    public ClientMessageSenderImpl(Client client) {
-        super(client);
+public class ClientMessageSenderImpl implements ClientMessageSender {
+    protected Client client;
+
+    public ClientMessageSenderImpl(Client client){
+        this.client = client;
     }
 
     @Override
