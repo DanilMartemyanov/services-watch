@@ -1,14 +1,14 @@
 package ru.itis.socketclient.sender;
 
+import ru.itis.socketclient.client.Client;
 import ru.itis.protocol.message.CalculateSumIntNumbersMessage;
 import ru.itis.protocol.message.ChatMessage;
-import ru.itis.socketclient.client.Client;
 import ru.itis.socketclient.exception.ClientException;
 
 public class ClientMessageSenderImpl implements ClientMessageSender {
     protected Client client;
 
-    public ClientMessageSenderImpl(Client client){
+    public ClientMessageSenderImpl(Client client) throws ClientException{
         this.client = client;
     }
 

@@ -1,0 +1,10 @@
+/home/bebra/repositories-ITIS/sw-2-sockets-team/Semestrovka2/socket-client/src/main/java/ru/itis/client/ConnectionListener.java
+/home/bebra/repositories-ITIS/sw-2-sockets-team/Semestrovka2/socket-client/src/main/java/ru/itis/AppClient.java
+/home/bebra/repositories-ITIS/sw-2-sockets-team/Semestrovka2/socket-client/src/main/java/ru/itis/handler/ClientMessageHandler.java
+/home/bebra/repositories-ITIS/sw-2-sockets-team/Semestrovka2/socket-client/src/main/java/ru/itis/client/SocketClient.java
+/home/bebra/repositories-ITIS/sw-2-sockets-team/Semestrovka2/socket-client/src/main/java/ru/itis/sender/ClientMessageSenderImpl.java
+/home/bebra/repositories-ITIS/sw-2-sockets-team/Semestrovka2/socket-client/src/main/java/ru/itis/handler/AbstractClientMessageHandler.java
+/home/bebra/repositories-ITIS/sw-2-sockets-team/Semestrovka2/socket-client/src/main/java/ru/itis/handler/ClientSumMessageHandlerImpl.java
+/home/bebra/repositories-ITIS/sw-2-sockets-team/Semestrovka2/socket-client/src/main/java/ru/itis/exception/ClientException.java
+/home/bebra/repositories-ITIS/sw-2-sockets-team/Semestrovka2/socket-client/src/main/java/ru/itis/sender/ClientMessageSender.java
+/home/bebra/repositories-ITIS/sw-2-sockets-team/Semestrovka2/socket-client/src/main/java/ru/itis/client/Client.java

@@ -2,6 +2,7 @@ package ru.itis.socketserver.server;
 
 import ru.itis.protocol.ProtocolMessageManager;
 import ru.itis.protocol.message.Message;
+import ru.itis.socketserver.handler.AbstractServerMessageHandler;
 import ru.itis.socketserver.handler.ServerMessageHandler;
 
 import java.io.IOException;
@@ -12,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SocketServer implements Server {
-    protected List<ServerMessageHandler> handlers;
+    protected List<AbstractServerMessageHandler> handlers;
     protected int port;
     protected ServerSocket server;
     protected boolean started;
@@ -29,12 +30,12 @@ public class SocketServer implements Server {
     }
 
     @Override
-    public void registerHandler(final ServerMessageHandler handlers) throws ServerException {
+    public void registerHandler(final AbstractServerMessageHandler handler) throws ServerException {
         if (started) {
             throw new ServerException("Server has been started already.");
         }
-        handlers.init(this);
-        this.handlers.add(handlers);
+        handler.init(this);
+        this.handlers.add(handler);
     }
 
     @Override
@@ -65,10 +66,10 @@ public class SocketServer implements Server {
             server = new ServerSocket(this.port);
             started = true;
             // Proccess connections
-            Socket s;
+            Socket socket;
             while (true) {
-                s = server.accept();
-                handleConnection(s);
+                socket = server.accept();
+                handleConnection(socket);
             }
         } catch (IOException ex) {
             throw new ServerException("Problem with server starting.", ex);

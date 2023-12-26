@@ -1,7 +1,10 @@
-/home/bebra/repositories-ITIS/Socket-Homework/HW-1/protocol/src/main/java/ru/itis/message/Message.java
-/home/bebra/repositories-ITIS/Socket-Homework/HW-1/protocol/src/main/java/ru/itis/message/MessageTypes.java
-/home/bebra/repositories-ITIS/Socket-Homework/HW-1/protocol/src/main/java/ru/itis/message/ChatMessage.java
-/home/bebra/repositories-ITIS/Socket-Homework/HW-1/protocol/src/main/java/ru/itis/message/MessageProperty.java
-/home/bebra/repositories-ITIS/Socket-Homework/HW-1/protocol/src/main/java/ru/itis/MessageManager.java
-/home/bebra/repositories-ITIS/Socket-Homework/HW-1/protocol/src/main/java/ru/itis/message/BytesMessage.java
-/home/bebra/repositories-ITIS/Socket-Homework/HW-1/protocol/src/main/java/ru/itis/serializer/MessageSerializer.java
+/home/bebra/repositories-ITIS/sw-2-sockets-team/Semestrovka2/protocol/src/main/java/ru/itis/message/SumNumbersMessage.java
+/home/bebra/repositories-ITIS/sw-2-sockets-team/Semestrovka2/protocol/src/main/java/ru/itis/util/validator/ProtocolMessageValidator.java
+/home/bebra/repositories-ITIS/sw-2-sockets-team/Semestrovka2/protocol/src/main/java/ru/itis/message/CalculateSumIntNumbersMessage.java
+/home/bebra/repositories-ITIS/sw-2-sockets-team/Semestrovka2/protocol/src/main/java/ru/itis/message/property/MessageProperty.java
+/home/bebra/repositories-ITIS/sw-2-sockets-team/Semestrovka2/protocol/src/main/java/ru/itis/message/property/MessageTypes.java
+/home/bebra/repositories-ITIS/sw-2-sockets-team/Semestrovka2/protocol/src/main/java/ru/itis/message/Message.java
+/home/bebra/repositories-ITIS/sw-2-sockets-team/Semestrovka2/protocol/src/main/java/ru/itis/message/BytesMessage.java
+/home/bebra/repositories-ITIS/sw-2-sockets-team/Semestrovka2/protocol/src/main/java/ru/itis/message/ChatMessage.java
+/home/bebra/repositories-ITIS/sw-2-sockets-team/Semestrovka2/protocol/src/main/java/ru/itis/ProtocolMessageManager.java
+/home/bebra/repositories-ITIS/sw-2-sockets-team/Semestrovka2/protocol/src/main/java/ru/itis/util/serializer/ObjectMessageSerializer.java

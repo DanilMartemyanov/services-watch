@@ -2,38 +2,35 @@ package ru.itis.socketserver.server;
 
 import ru.itis.protocol.ProtocolMessageManager;
 import ru.itis.protocol.message.Message;
-import ru.itis.socketserver.handler.ServerMessageHandler;
+import ru.itis.socketserver.handler.AbstractServerMessageHandler;
 
 import java.io.IOException;
 import java.net.Socket;
 import java.util.List;
 
 public class ConnectionListener implements Runnable {
-    int connectionId;
-    Socket s;
-    List<ServerMessageHandler> handlers;
-    List<Socket> sockets;
+    private final int connectionId;
+    private final Socket socket;
+    private final List<AbstractServerMessageHandler> handlers;
 
-    public ConnectionListener(List<ServerMessageHandler> handlers, Socket s, int connectionId) {
+    public ConnectionListener(List<AbstractServerMessageHandler> handlers, Socket socket, int connectionId) {
         this.handlers = handlers;
-        this.s = s;
+        this.socket = socket;
         this.connectionId = connectionId;
     }
 
     @Override
     public void run() {
         Message message = null;
-        while (true){
+        while (true) {
             try {
-                message = ProtocolMessageManager.readMessage(s.getInputStream());
+                message = ProtocolMessageManager.readMessage(socket.getInputStream());
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
             System.out.println("New message:");
-            for(ServerMessageHandler handler : handlers){
-                if(message.getType() == handler.getType()){
-                    // One by one! Another left listeners will wait current
-                    // Another thread could be created here or before for every Listener
+            for (AbstractServerMessageHandler handler : handlers) {
+                if (message.getType() == handler.getType()) {
                     handler.handle(connectionId, message);
                 }
             }

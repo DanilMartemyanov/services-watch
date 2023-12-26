@@ -1,0 +1,7 @@
+/home/bebra/repositories-ITIS/sw-2-sockets-team/Semestrovka2/socket-server/src/main/java/ru/itis/socketserver/handler/CalculateSumMessageHandler.java
+/home/bebra/repositories-ITIS/sw-2-sockets-team/Semestrovka2/socket-server/src/main/java/ru/itis/socketserver/server/SocketServer.java
+/home/bebra/repositories-ITIS/sw-2-sockets-team/Semestrovka2/socket-server/src/main/java/ru/itis/socketserver/server/Server.java
+/home/bebra/repositories-ITIS/sw-2-sockets-team/Semestrovka2/socket-server/src/main/java/ru/itis/socketserver/AppServer.java
+/home/bebra/repositories-ITIS/sw-2-sockets-team/Semestrovka2/socket-server/src/main/java/ru/itis/socketserver/server/ConnectionListener.java
+/home/bebra/repositories-ITIS/sw-2-sockets-team/Semestrovka2/socket-server/src/main/java/ru/itis/socketserver/handler/ServerMessageHandler.java
+/home/bebra/repositories-ITIS/sw-2-sockets-team/Semestrovka2/socket-server/src/main/java/ru/itis/socketserver/handler/AbstractServerMessageHandler.java
