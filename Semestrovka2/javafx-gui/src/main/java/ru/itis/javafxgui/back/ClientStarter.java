@@ -1,5 +1,6 @@
 package ru.itis.javafxgui.back;
 
+import ru.itis.javafxgui.back.handler.ChatMessageClientHandler;
 import ru.itis.javafxgui.back.handler.SumMessageHandler;
 import ru.itis.socketclient.client.Client;
 import ru.itis.socketclient.client.SocketClient;
@@ -22,6 +23,7 @@ public class ClientStarter {
         }
         // handler registration begin
         client.registerHandler(new SumMessageHandler());
+        client.registerHandler(new ChatMessageClientHandler());
         // handler registration end
         client.start();
         this.client = client;
@@ -34,4 +36,6 @@ public class ClientStarter {
             throw new ClientException(e);
         }
     }
+
+
 }

@@ -28,9 +28,9 @@ public class ConnectionListener implements Runnable {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-            System.out.println("New message:");
             for (AbstractServerMessageHandler handler : handlers) {
                 if (message.getType() == handler.getType()) {
+                    System.out.println("Обработка сообщения");
                     handler.handle(connectionId, message);
                 }
             }

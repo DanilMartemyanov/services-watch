@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SocketClient implements Client {
+
     protected Socket socket;
     private boolean isStarted;
     private final InetAddress inetAddress;
@@ -76,4 +77,5 @@ public class SocketClient implements Client {
             throw new ClientException("Problem with server starting", ex);
         }
     }
+
 }
