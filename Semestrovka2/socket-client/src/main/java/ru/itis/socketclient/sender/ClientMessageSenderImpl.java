@@ -1,5 +1,6 @@
 package ru.itis.socketclient.sender;
 
+import ru.itis.protocol.message.PageVideoGetRequestMessage;
 import ru.itis.socketclient.client.Client;
 import ru.itis.protocol.message.CalculateSumIntNumbersMessage;
 import ru.itis.protocol.message.ChatMessage;
@@ -22,5 +23,11 @@ public class ClientMessageSenderImpl implements ClientMessageSender {
     public void sendSumOf(int a, int b) throws ClientException {
         CalculateSumIntNumbersMessage calculateSumIntNumbersMessage = new CalculateSumIntNumbersMessage(a, b);
         client.sendMessage(calculateSumIntNumbersMessage);
+    }
+
+    @Override
+    public void sendRequestByGetPageOfVideos(int pageNumber, int pageSize) throws ClientException {
+        PageVideoGetRequestMessage pageVideoGetRequestMessage = new PageVideoGetRequestMessage(pageNumber, pageSize);
+        client.sendMessage(pageVideoGetRequestMessage);
     }
 }

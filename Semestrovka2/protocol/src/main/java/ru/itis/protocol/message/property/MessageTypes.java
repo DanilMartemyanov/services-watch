@@ -7,4 +7,6 @@ public class MessageTypes {
     public static int SEND_TEXT_IN_CHAT = 3;
     public static int SEND_SUM = 4;
     public static int CALCULATE_SUM = 5;
+    public static int VIDEO = 6 ;
+    public static int PAGE_VIDEO_GET_REQUEST = 6 ;
 }

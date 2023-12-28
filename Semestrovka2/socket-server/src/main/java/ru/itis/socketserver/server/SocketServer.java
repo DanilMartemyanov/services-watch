@@ -61,6 +61,7 @@ public class SocketServer implements Server {
 
     @Override
     public void start() throws ServerException {
+        
         try {
             // Start server
             server = new ServerSocket(this.port);
