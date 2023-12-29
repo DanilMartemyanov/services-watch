@@ -1,6 +1,9 @@
 package ru.itis.javafxgui;
 
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
 import ru.itis.javafxgui.back.ClientStarter;
 import ru.itis.socketclient.client.SocketClient;
@@ -12,21 +15,24 @@ import java.net.InetAddress;
 
 public class HelloApplication extends Application {
     @Override
-    public void start(Stage stage) {
-        ClientStarter starter = new ClientStarter();
-        try {
-            starter.start();
-            starter.getMessageSender().sendStopVideoMessage();
-            Thread.sleep(1000);
-            starter.getMessageSender().sendChooseVideoMessage("https://www.youtube.com/watch?v=KhX3T_NYndo&list=PLaxxU3ZabospOFUVjRWofD-mYOQfCxpzw");
-        } catch (ClientException e) {
-            throw new RuntimeException(e);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+    public void start(Stage stage) throws IOException {
+//        ClientStarter starter = new ClientStarter();
+//        try {
+//            starter.start();
+//            starter.getMessageSender().sendSumOf(2,6);
+//        } catch (ClientException e) {
+//            throw new RuntimeException(e);
+//        }
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("video-choose.fxml"));
+
+        Parent root = fxmlLoader.load();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
     }
 
     public static void main(String[] args) {
-        launch();
+        Application.launch();
     }
 }

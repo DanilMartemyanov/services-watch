@@ -3,6 +3,8 @@ module ru.itis.javafxgui {
     requires javafx.fxml;
     requires ru.itis.socketclient;
     requires ru.itis.protocol;
+    requires javafx.web;
+
 
     requires com.almasb.fxgl.all;
 

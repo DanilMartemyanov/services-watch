@@ -70,6 +70,7 @@ public class SocketServer implements Server {
             Socket socket;
             while (true) {
                 socket = server.accept();
+                System.out.println("Подключился новый пользователь");
                 handleConnection(socket);
             }
         } catch (IOException ex) {

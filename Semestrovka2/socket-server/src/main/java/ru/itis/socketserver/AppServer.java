@@ -2,10 +2,13 @@ package ru.itis.socketserver;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
+
 import ru.itis.socketserver.handler.CalculateSumMessageHandler;
 import ru.itis.socketserver.handler.ChooseVideoMessageHandler;
 import ru.itis.socketserver.handler.PageVideoGetRequestMessageHandler;
 import ru.itis.socketserver.handler.StopVideoMessageHandler;
+import ru.itis.socketserver.handler.ChatMessageServerHandler;
+
 import ru.itis.socketserver.server.Server;
 import ru.itis.socketserver.server.SocketServer;
 
@@ -29,6 +32,7 @@ public class AppServer {
             server.registerHandler(new ChooseVideoMessageHandler(dataSource));
             server.registerHandler(new PageVideoGetRequestMessageHandler(dataSource));
             server.registerHandler(new StopVideoMessageHandler());
+            server.registerHandler(new ChatMessageServerHandler());
             server.start();
         } catch (Exception ex) {
             ex.printStackTrace();

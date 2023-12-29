@@ -12,7 +12,7 @@ public class ClientMessageSenderImpl implements ClientMessageSender {
     }
 
     @Override
-    public void sendChatMessage(String recipient, String text) throws ClientException {
+    public void sendChatMessage(String text) throws ClientException {
         ChatMessage message = new ChatMessage(text);
         client.sendMessage(message);
     }
