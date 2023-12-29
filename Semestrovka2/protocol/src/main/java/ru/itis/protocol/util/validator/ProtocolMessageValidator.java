@@ -12,7 +12,12 @@ public class ProtocolMessageValidator {
                 || type == MessageTypes.SEND_VIDEO
                 || type == MessageTypes.REQUEST_BY_GET_VIDEO
                 || type == MessageTypes.SEND_SUM
-                || type == MessageTypes.CALCULATE_SUM;
+                || type == MessageTypes.CALCULATE_SUM
+                || type == MessageTypes.VIDEO
+                || type == MessageTypes.PAGE_VIDEO_GET_REQUEST
+                || type == MessageTypes.PAGE_VIDEO_RESPONSE
+                || type == MessageTypes.CHOOSE_VIDEO
+                || type == MessageTypes.STOP_VIDEO;
     }
 
     public static boolean isValidLength(int length) {
