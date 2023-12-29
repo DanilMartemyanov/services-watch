@@ -2,6 +2,7 @@ package ru.itis.protocol.message;
 
 import java.io.Serializable;
 
+// запрос на получение страницы видосов
 public class PageVideoGetRequestMessage extends Message implements Serializable {
     public final static int type = 7;
     private int pageSize;

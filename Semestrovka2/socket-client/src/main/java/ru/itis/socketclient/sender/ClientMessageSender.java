@@ -8,4 +8,8 @@ public interface ClientMessageSender {
     void sendSumOf(int a, int b) throws ClientException;
 
     void sendRequestByGetPageOfVideos(int pageNumber, int pageSize) throws ClientException;
+
+    void sendChooseVideoMessage(String uri) throws ClientException;
+
+    void sendStopVideoMessage() throws ClientException;
 }

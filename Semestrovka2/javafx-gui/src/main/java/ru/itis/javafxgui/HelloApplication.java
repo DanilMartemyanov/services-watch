@@ -16,8 +16,12 @@ public class HelloApplication extends Application {
         ClientStarter starter = new ClientStarter();
         try {
             starter.start();
-            starter.getMessageSender().sendSumOf(2,6);
+            starter.getMessageSender().sendStopVideoMessage();
+            Thread.sleep(1000);
+            starter.getMessageSender().sendChooseVideoMessage("https://www.youtube.com/watch?v=KhX3T_NYndo&list=PLaxxU3ZabospOFUVjRWofD-mYOQfCxpzw");
         } catch (ClientException e) {
+            throw new RuntimeException(e);
+        } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
     }

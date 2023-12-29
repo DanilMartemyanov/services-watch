@@ -1,6 +1,9 @@
 package ru.itis.javafxgui.back;
 
+import ru.itis.javafxgui.back.handler.PageVideoResponseMessageHandler;
+import ru.itis.javafxgui.back.handler.StopVideoMessageHandler;
 import ru.itis.javafxgui.back.handler.SumMessageHandler;
+import ru.itis.javafxgui.back.handler.VideoMessageHandler;
 import ru.itis.socketclient.client.Client;
 import ru.itis.socketclient.client.SocketClient;
 import ru.itis.socketclient.exception.ClientException;
@@ -22,6 +25,9 @@ public class ClientStarter {
         }
         // handler registration begin
         client.registerHandler(new SumMessageHandler());
+        client.registerHandler(new VideoMessageHandler());
+        client.registerHandler(new PageVideoResponseMessageHandler());
+        client.registerHandler(new StopVideoMessageHandler());
         // handler registration end
         client.start();
         this.client = client;

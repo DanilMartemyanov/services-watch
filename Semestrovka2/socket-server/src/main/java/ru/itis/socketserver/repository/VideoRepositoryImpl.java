@@ -11,14 +11,15 @@ public class VideoRepositoryImpl implements VideoRepository {
     private final static String SAVE_SQL = "INSERT INTO video " +
             "(uri, name, likes_amount, dislikes_amount) VALUES (%s, %s, %d, %d)";
     //language=sql
-    private final static String FIND_BY_NAME_SQL = "SELECT * FROM video WHERE name = %s";
+    private final static String FIND_BY_NAME_SQL = "SELECT * FROM video WHERE name = '%s'";
     //language=sql
-    private final static String FIND_BY_URI_SQL = "SELECT * FROM video WHERE uri = %s";
+    private final static String FIND_BY_URI_SQL = "SELECT * FROM video WHERE uri = '%s'";
     //language=sql
-    private final static String FIND_BY_ID_SQL = "SELECT * FROM video WHERE id = %s";
+    private final static String FIND_BY_ID_SQL = "SELECT * FROM video WHERE id = '%s'";
 
     //language=sql
-    private final static String UPDATE_SQL = "UPDATE video SET likes_amount = %d, dislikes_amount = %d WHERE uri = %s";
+    private final static String UPDATE_SQL =
+            "UPDATE video SET likes_amount = %d, dislikes_amount = %d WHERE uri = '%s'";
     //language=sql
     private final static String GET_PAGE = "SELECT * FROM video ORDER BY likes_amount LIMIT %d OFFSET %d";
     private final DataSource dataSource;
