@@ -14,4 +14,6 @@ module ru.itis.javafxgui {
     opens ru.itis.javafxgui.back to javafx.fxml;
     exports ru.itis.javafxgui.back.handler;
     opens ru.itis.javafxgui.back.handler to javafx.fxml;
+    exports ru.itis.javafxgui.event;
+    opens ru.itis.javafxgui.event to javafx.fxml;
 }
