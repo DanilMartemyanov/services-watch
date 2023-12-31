@@ -12,5 +12,6 @@ public class MessageTypes {
     public static int PAGE_VIDEO_RESPONSE = 8;
     public static int CHOOSE_VIDEO = 9;
     public static int PING_PONG_MESSAGE = 10;
-    public static int STOP_VIDEO = 11;
+    public static int PAUSE_VIDEO = 11;
+    public static int SYNCHRONIZE = 13;
 }

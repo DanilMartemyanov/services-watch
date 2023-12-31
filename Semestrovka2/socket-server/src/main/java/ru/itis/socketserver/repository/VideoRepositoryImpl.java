@@ -114,7 +114,7 @@ public class VideoRepositoryImpl implements VideoRepository {
     public List<Video> getPage(int pageNumber, int pageSize) throws SQLException {
         try (Connection connection = dataSource.getConnection()) {
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery(String.format(GET_PAGE, pageSize, pageNumber));
+            ResultSet resultSet = statement.executeQuery(String.format(GET_PAGE, pageSize, pageNumber*pageSize));
             List<Video> videos = new ArrayList<>();
             while (resultSet.next()) {
                 videos.add(mapper(resultSet));

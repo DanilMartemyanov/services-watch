@@ -3,6 +3,7 @@ package ru.itis.protocol.message;
 import java.io.Serializable;
 import java.util.UUID;
 
+// useless
 public class VideoMessage extends Message implements Serializable {
     private String uri;
     private String name;

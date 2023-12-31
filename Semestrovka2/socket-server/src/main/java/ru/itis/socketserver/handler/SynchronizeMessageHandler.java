@@ -5,7 +5,7 @@ import ru.itis.protocol.message.property.MessageTypes;
 
 import java.rmi.ServerException;
 
-public class StopVideoMessageHandler extends AbstractServerMessageHandler{
+public class SynchronizeMessageHandler extends AbstractServerMessageHandler{
     @Override
     public void handle(int connectionId, Message message) {
         try {
@@ -17,6 +17,6 @@ public class StopVideoMessageHandler extends AbstractServerMessageHandler{
 
     @Override
     public int getType() {
-        return MessageTypes.PAUSE_VIDEO;
+        return MessageTypes.SYNCHRONIZE;
     }
 }

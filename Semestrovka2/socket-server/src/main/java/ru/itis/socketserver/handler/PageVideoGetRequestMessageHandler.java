@@ -32,7 +32,7 @@ public class PageVideoGetRequestMessageHandler extends AbstractServerMessageHand
         int pageSize = pageVideoGetRequestMessage.getPageSize();
         List<Video> videos = new ArrayList<>();
         try {
-            videos = videoRepository.getPage(pageSize, pageSize);
+            videos = videoRepository.getPage(numberPage, pageSize);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

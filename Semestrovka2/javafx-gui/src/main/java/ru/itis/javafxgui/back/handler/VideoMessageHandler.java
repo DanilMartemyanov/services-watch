@@ -5,6 +5,7 @@ import ru.itis.protocol.message.VideoMessage;
 import ru.itis.protocol.message.property.MessageTypes;
 import ru.itis.socketclient.handler.AbstractClientMessageHandler;
 
+// useless class
 public class VideoMessageHandler extends AbstractClientMessageHandler {
     @Override
     public void handle(Message message) {

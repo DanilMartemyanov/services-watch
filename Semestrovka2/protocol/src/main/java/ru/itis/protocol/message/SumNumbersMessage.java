@@ -1,5 +1,6 @@
 package ru.itis.protocol.message;
 
+// useless
 public class SumNumbersMessage extends Message {
     protected int number;
     public static final int type = 4;

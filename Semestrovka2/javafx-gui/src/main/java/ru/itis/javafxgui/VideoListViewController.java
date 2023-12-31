@@ -1,5 +1,6 @@
 package ru.itis.javafxgui;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,8 +14,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import ru.itis.javafxgui.back.ClientStarter;
+import ru.itis.javafxgui.event.ChoosingVideoEvent;
 import ru.itis.javafxgui.event.GettingVideoEvent;
-import ru.itis.javafxgui.event.GettingVideosEventSource;
+import ru.itis.javafxgui.event.source.ChoosingVideoEventSource;
+import ru.itis.javafxgui.event.source.GettingVideosEventSource;
 import ru.itis.protocol.item.VideoItem;
 import ru.itis.socketclient.exception.ClientException;
 
@@ -24,7 +27,7 @@ import java.io.IOException;
 public class VideoListViewController {
 
     @FXML
-    private ListView<VideoItem> videoListView; //VideoItem - модель видео из message
+    private ListView<VideoItem> videoListView; // VideoItem - модель видео из message
 
     @FXML
     public void initialize() {
@@ -48,38 +51,65 @@ public class VideoListViewController {
                 }
             }
         });
+        // Настройка CellFactory для ListView
+        // ----------------------------------------------------------------------
+        // запрос на получение списка видео
         try {
-            ClientStarter.getMessageSender().sendRequestByGetPageOfVideos(0, 6);
+            ClientStarter.getMessageSender().sendRequestByGetPageOfVideos(3, 5);
         } catch (ClientException e) {
             System.out.println("Oops, error");
         }
-        Button button = new Button();
-        GettingVideosEventSource gettingVideosEventSource = new GettingVideosEventSource(button);
-
-        button.addEventHandler(GettingVideoEvent.GETTING_VIDEO_EVENT_TYPE, gettingVideoEvent -> {
+        // запрос на получение списка видео
+        // ----------------------------------------------------------------------
+        // описание действия, при получении списка видео
+        Button addVideoInListController = new Button();
+        GettingVideosEventSource gettingVideosEventSource = new GettingVideosEventSource(addVideoInListController);
+        addVideoInListController.addEventHandler(GettingVideoEvent.TYPE, gettingVideoEvent -> {
             System.out.println("hiihihi");
             videoListView.getItems().addAll(gettingVideoEvent.getVideos());
         });
-
-        videoListView.setOnMouseClicked(event -> {
-            if (event.getClickCount() == 2 && !videoListView.getSelectionModel().isEmpty()) { // Двойной клик и выбран элемент
-                try {
+        // описание действия, при получении списка видео
+        // ----------------------------------------------------------------------
+        // описание действия для старта видео
+        Button startVideoController = new Button();
+        ChoosingVideoEventSource choosingVideoEventSource = new ChoosingVideoEventSource(startVideoController);
+        startVideoController.addEventHandler(ChoosingVideoEvent.TYPE, choosingVideoEvent -> {
+            Platform.runLater(new Runnable() {
+                @Override
+                public void run() {
+                    HelloController.setVideoUri(choosingVideoEvent.getVideo().getUri());
                     switchToVideoScene();
-                } catch (IOException e) {
-                    e.printStackTrace();
+                }
+            });
+
+        });
+        // описание действия для старта видео
+        // ----------------------------------------------------------------------
+        // описание действия, при нажатии на видео
+        videoListView.setOnMouseClicked(event -> {
+            // Двойной клик и выбран элемент
+            if (event.getClickCount() == 2 && !videoListView.getSelectionModel().isEmpty()) {
+                VideoItem videoItem = videoListView.getSelectionModel().getSelectedItem(); // Выбранное видео
+                try {
+                    ClientStarter.getMessageSender().sendChooseVideoMessage(videoItem);
+                } catch (ClientException e) {
+                    throw new RuntimeException(e);
                 }
             }
         });
-
-
+        // описание действия, при нажатии на видео
     }
 
-    public void switchToVideoScene() throws IOException {
+    public void switchToVideoScene(){
         FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
-        Parent videoRoot = loader.load();
+        Parent videoRoot = null;
+        try {
+            videoRoot = loader.load();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         Scene videoScene = new Scene(videoRoot);
-
-        Stage currentStage = (Stage) videoListView.getScene().getWindow();
-        currentStage.setScene(videoScene);
+        Stage currentStage = (Stage) videoListView.getScene().getWindow(); // выбирается текущее окно
+        currentStage.setScene(videoScene); // устанавливается новая сцена
     }
 }

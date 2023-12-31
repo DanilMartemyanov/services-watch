@@ -5,6 +5,7 @@ import ru.itis.protocol.message.SumNumbersMessage;
 import ru.itis.protocol.message.property.MessageTypes;
 import ru.itis.socketclient.handler.AbstractClientMessageHandler;
 
+// useless class for example
 public class SumMessageHandler extends AbstractClientMessageHandler {
     @Override
     public void handle(Message message) {

@@ -7,6 +7,7 @@ import ru.itis.protocol.message.property.MessageTypes;
 
 import java.rmi.ServerException;
 
+// useless
 public class CalculateSumMessageHandler extends AbstractServerMessageHandler {
     @Override
     public void handle(final int connectionId, final Message message) {

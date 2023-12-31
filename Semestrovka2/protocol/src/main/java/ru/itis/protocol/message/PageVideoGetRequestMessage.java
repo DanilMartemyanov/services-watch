@@ -5,9 +5,9 @@ import java.io.Serializable;
 // запрос на получение страницы видосов
 public class PageVideoGetRequestMessage extends Message implements Serializable {
     public final static int type = 7;
-    private int pageSize;
+    private final int pageSize;
 
-    private int numberPage;
+    private final int numberPage;
 
     public PageVideoGetRequestMessage(int numberPage, int pageSize) {
         super(type);

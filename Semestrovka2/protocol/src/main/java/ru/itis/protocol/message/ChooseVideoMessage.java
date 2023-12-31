@@ -1,17 +1,19 @@
 package ru.itis.protocol.message;
 
+import ru.itis.protocol.item.VideoItem;
+
 import java.io.Serializable;
 
 public class ChooseVideoMessage extends Message implements Serializable {
-    private String uri;
+    private final VideoItem video;
     public final static int type = 9;
 
-    public ChooseVideoMessage(String uri) {
+    public ChooseVideoMessage(VideoItem video) {
         super(type);
-        this.uri = uri;
+        this.video = video;
     }
 
-    public String getUri() {
-        return uri;
+    public VideoItem getVideo() {
+        return video;
     }
 }

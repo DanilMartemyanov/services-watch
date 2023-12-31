@@ -17,7 +17,8 @@ public class ProtocolMessageValidator {
                 || type == MessageTypes.PAGE_VIDEO_GET_REQUEST
                 || type == MessageTypes.PAGE_VIDEO_RESPONSE
                 || type == MessageTypes.CHOOSE_VIDEO
-                || type == MessageTypes.STOP_VIDEO;
+                || type == MessageTypes.PAUSE_VIDEO
+                || type == MessageTypes.SYNCHRONIZE;
     }
 
     public static boolean isValidLength(int length) {

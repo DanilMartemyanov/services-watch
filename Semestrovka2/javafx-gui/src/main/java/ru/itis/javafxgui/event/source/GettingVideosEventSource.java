@@ -1,7 +1,7 @@
-package ru.itis.javafxgui.event;
+package ru.itis.javafxgui.event.source;
 
-import javafx.event.EventHandler;
 import javafx.scene.control.Button;
+import ru.itis.javafxgui.event.GettingVideoEvent;
 import ru.itis.protocol.item.VideoItem;
 
 import java.util.List;

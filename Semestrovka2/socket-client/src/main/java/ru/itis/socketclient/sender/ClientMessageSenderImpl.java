@@ -1,5 +1,6 @@
 package ru.itis.socketclient.sender;
 
+import ru.itis.protocol.item.VideoItem;
 import ru.itis.protocol.message.*;
 import ru.itis.socketclient.client.Client;
 import ru.itis.socketclient.exception.ClientException;
@@ -30,13 +31,18 @@ public class ClientMessageSenderImpl implements ClientMessageSender {
     }
 
     @Override
-    public void sendChooseVideoMessage(String uri) throws ClientException {
-        ChooseVideoMessage chooseVideoMessage = new ChooseVideoMessage(uri);
+    public void sendChooseVideoMessage(VideoItem video) throws ClientException {
+        ChooseVideoMessage chooseVideoMessage = new ChooseVideoMessage(video);
         client.sendMessage(chooseVideoMessage);
     }
 
     @Override
-    public void sendStopVideoMessage() throws ClientException {
+    public void sendPauseVideoMessage() throws ClientException {
         client.sendMessage(new StopVideoMessage());
+    }
+
+    @Override
+    public void sendSynchronizeMessage(int hour, int minute, int second) throws ClientException {
+        client.sendMessage(new SynchronizeMessage(hour, minute, second));
     }
 }

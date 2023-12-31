@@ -14,36 +14,12 @@ import java.sql.SQLException;
 import java.util.Optional;
 
 public class ChooseVideoMessageHandler extends AbstractServerMessageHandler {
-
-    private final DataSource dataSource;
-
-    public ChooseVideoMessageHandler(DataSource dataSource) {
-        this.dataSource = dataSource;
-    }
-
     @Override
     public void handle(int connectionId, Message message) {
-        VideoRepository videoRepository = new VideoRepositoryImpl(dataSource);
-        ChooseVideoMessage chooseVideoMessage = (ChooseVideoMessage) message;
-        Optional<Video> videoOptional;
         try {
-            videoOptional = videoRepository.findByUri(chooseVideoMessage.getUri());
-        } catch (SQLException e) {
+            server.sendBroadCastMessage(message);
+        } catch (ServerException e) {
             throw new RuntimeException(e);
-        }
-        if (videoOptional.isPresent()) {
-            Video video = videoOptional.get();
-            VideoMessage videoMessage = new VideoMessage(
-                    video.getUri(),
-                    video.getName(),
-                    video.getLikesAmount(),
-                    video.getDislikesAmount()
-            );
-            try {
-                server.sendBroadCastMessage(videoMessage);
-            } catch (ServerException e) {
-                throw new RuntimeException(e);
-            }
         }
     }
 

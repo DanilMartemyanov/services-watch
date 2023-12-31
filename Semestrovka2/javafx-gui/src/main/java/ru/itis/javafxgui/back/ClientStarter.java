@@ -1,13 +1,8 @@
 package ru.itis.javafxgui.back;
 
 
-import ru.itis.javafxgui.back.handler.PageVideoResponseMessageHandler;
-import ru.itis.javafxgui.back.handler.StopVideoMessageHandler;
+import ru.itis.javafxgui.back.handler.*;
 
-import ru.itis.javafxgui.back.handler.ChatMessageClientHandler;
-
-import ru.itis.javafxgui.back.handler.SumMessageHandler;
-import ru.itis.javafxgui.back.handler.VideoMessageHandler;
 import ru.itis.socketclient.client.Client;
 import ru.itis.socketclient.client.SocketClient;
 import ru.itis.socketclient.exception.ClientException;
@@ -31,8 +26,10 @@ public class ClientStarter {
         client.registerHandler(new SumMessageHandler());
         client.registerHandler(new VideoMessageHandler());
         client.registerHandler(new PageVideoResponseMessageHandler());
-        client.registerHandler(new StopVideoMessageHandler());
+        client.registerHandler(new PauseVideoMessageHandler());
         client.registerHandler(new ChatMessageClientHandler());
+        client.registerHandler(new ChooseVideoMessageHandler());
+        client.registerHandler(new SynchronizeMessageHandler());
         // handler registration end
         client.start();
         ClientStarter.client = client;
@@ -45,6 +42,4 @@ public class ClientStarter {
             throw new ClientException(e);
         }
     }
-
-
 }

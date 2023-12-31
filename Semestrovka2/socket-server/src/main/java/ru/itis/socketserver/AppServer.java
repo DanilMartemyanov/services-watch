@@ -3,11 +3,7 @@ package ru.itis.socketserver;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
-import ru.itis.socketserver.handler.CalculateSumMessageHandler;
-import ru.itis.socketserver.handler.ChooseVideoMessageHandler;
-import ru.itis.socketserver.handler.PageVideoGetRequestMessageHandler;
-import ru.itis.socketserver.handler.StopVideoMessageHandler;
-import ru.itis.socketserver.handler.ChatMessageServerHandler;
+import ru.itis.socketserver.handler.*;
 
 import ru.itis.socketserver.server.Server;
 import ru.itis.socketserver.server.SocketServer;
@@ -29,10 +25,11 @@ public class AppServer {
         try{
             Server server = new SocketServer(PORT);
             server.registerHandler(new CalculateSumMessageHandler());
-            server.registerHandler(new ChooseVideoMessageHandler(dataSource));
+            server.registerHandler(new ChooseVideoMessageHandler());
             server.registerHandler(new PageVideoGetRequestMessageHandler(dataSource));
             server.registerHandler(new StopVideoMessageHandler());
             server.registerHandler(new ChatMessageServerHandler());
+            server.registerHandler(new SynchronizeMessageHandler());
             server.start();
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -43,8 +40,8 @@ public class AppServer {
     private static Properties getDataBaseProperties(){
         Properties properties = new Properties();
         properties.setProperty("jdbcUrl", "jdbc:postgresql://localhost:5432/semestrovka");
-        properties.setProperty("username", "postgres");
-        properties.setProperty("password", "pKMFr7CW");
+        properties.setProperty("username", "admin");
+        properties.setProperty("password", "admin");
 
         return properties;
     }

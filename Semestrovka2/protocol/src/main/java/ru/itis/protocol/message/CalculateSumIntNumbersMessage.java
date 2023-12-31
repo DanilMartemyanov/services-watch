@@ -2,7 +2,7 @@ package ru.itis.protocol.message;
 
 import java.io.Serializable;
 
-// Could be
+// useless
 public class CalculateSumIntNumbersMessage extends Message implements Serializable {
     protected int number1;
     protected int number2;

@@ -1,5 +1,6 @@
 package ru.itis.socketclient.sender;
 
+import ru.itis.protocol.item.VideoItem;
 import ru.itis.socketclient.exception.ClientException;
 
 public interface ClientMessageSender {
@@ -9,7 +10,9 @@ public interface ClientMessageSender {
 
     void sendRequestByGetPageOfVideos(int pageNumber, int pageSize) throws ClientException;
 
-    void sendChooseVideoMessage(String uri) throws ClientException;
+    void sendChooseVideoMessage(VideoItem video) throws ClientException;
 
-    void sendStopVideoMessage() throws ClientException;
+    void sendPauseVideoMessage() throws ClientException;
+
+    void sendSynchronizeMessage(int hour, int minute, int second) throws ClientException;
 }
