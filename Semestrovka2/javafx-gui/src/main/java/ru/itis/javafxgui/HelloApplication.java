@@ -16,13 +16,11 @@ import java.net.InetAddress;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-//        ClientStarter starter = new ClientStarter();
-//        try {
-//            starter.start();
-//            starter.getMessageSender().sendSumOf(2,6);
-//        } catch (ClientException e) {
-//            throw new RuntimeException(e);
-//        }
+        try {
+            ClientStarter.start();
+        } catch (ClientException e) {
+            throw new RuntimeException(e);
+        }
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("video-choose.fxml"));
 
         Parent root = fxmlLoader.load();

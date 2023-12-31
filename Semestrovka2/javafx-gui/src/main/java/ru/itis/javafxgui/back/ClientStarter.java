@@ -18,9 +18,9 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 
 public class ClientStarter {
-    private Client client;
+    private static Client client;
 
-    public void start() throws ClientException {
+    public static void start() throws ClientException {
         Client client = null;
         try {
             client = new SocketClient(InetAddress.getLocalHost(), 8082);
@@ -35,10 +35,10 @@ public class ClientStarter {
         client.registerHandler(new ChatMessageClientHandler());
         // handler registration end
         client.start();
-        this.client = client;
+        ClientStarter.client = client;
     }
 
-    public ClientMessageSender getMessageSender() throws ClientException {
+    public static ClientMessageSender getMessageSender() throws ClientException {
         try {
             return new ClientMessageSenderImpl(client);
         } catch (ClientException e) {
