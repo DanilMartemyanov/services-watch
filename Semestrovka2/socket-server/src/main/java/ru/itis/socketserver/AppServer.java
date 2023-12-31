@@ -43,8 +43,8 @@ public class AppServer {
     private static Properties getDataBaseProperties(){
         Properties properties = new Properties();
         properties.setProperty("jdbcUrl", "jdbc:postgresql://localhost:5432/semestrovka");
-        properties.setProperty("username", "admin");
-        properties.setProperty("password", "admin");
+        properties.setProperty("username", "postgres");
+        properties.setProperty("password", "pKMFr7CW");
 
         return properties;
     }
